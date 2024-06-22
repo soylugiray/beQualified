@@ -1,7 +1,5 @@
 package stepDefinitions;
 
-import enums.URL_LINKS;
-import enums.USERCREDENTIAL;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -21,11 +19,8 @@ import utility.ReusableMethods;
 
 import java.time.Duration;
 
-import static enums.USERCREDENTIAL.USER1;
-import static enums.USERCREDENTIAL.USER_EMNE;
 import static io.restassured.RestAssured.given;
 import static utility.ReusableMethods.waitFor;
-
 
 public class Hooks extends CommonPage{
 
@@ -97,30 +92,30 @@ public class Hooks extends CommonPage{
         );
     }
 
-    @Before(value = "@Login1")
-    public void login1() {
-        driver.get(URL_LINKS.LOGIN_URL.getLink());
-        getLoginPage().input_GirisYap.click();
-        getLoginPage().E_postaButton.click();
-        getLoginPage().E_PostaBox.sendKeys(USER1.getUsername());
-        getLoginPage().PasswordBox.sendKeys(USER1.getPassword());
-        getLoginPage().RobotDegilimBox.click();
-        ReusableMethods.waitForPageToLoad(5);
-        getLoginPage().KaydolunButton.click();
-
-    }
-    @Before (value = "@LoginViaEmail")
-    public void loginViaEmail(){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
-        driver.get("https://stg.mobilyaplan.app/login");
-        wait.until(ExpectedConditions.visibilityOf(getLoginPage().emailAdressInbox));
-        getLoginPage().emailAdressInbox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
-        getLoginPage().passwordInbox.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
-        waitFor(2);
-        getLoginPage().loginButtonViaEmail.click();
-        waitFor(2);
-
-     }
+//    @Before(value = "@Login1")
+//    public void login1() {
+//        driver.get(URL_LINKS.LOGIN_URL.getLink());
+//        getLoginPage().input_GirisYap.click();
+//        getLoginPage().E_postaButton.click();
+//        getLoginPage().E_PostaBox.sendKeys(USER1.getUsername());
+//        getLoginPage().PasswordBox.sendKeys(USER1.getPassword());
+//        getLoginPage().RobotDegilimBox.click();
+//        ReusableMethods.waitForPageToLoad(5);
+//        getLoginPage().KaydolunButton.click();
+//
+//    }
+//    @Before (value = "@LoginViaEmail")
+//    public void loginViaEmail(){
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+//        driver.get("https://stg.mobilyaplan.app/login");
+//        wait.until(ExpectedConditions.visibilityOf(getLoginPage().emailAdressInbox));
+//        getLoginPage().emailAdressInbox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
+//        getLoginPage().passwordInbox.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
+//        waitFor(2);
+//        getLoginPage().loginButtonViaEmail.click();
+//        waitFor(2);
+//
+//     }
 
 //    @Before(value = "@LoginStgV2")
 //    public void loginStgV2() {
@@ -157,49 +152,49 @@ public class Hooks extends CommonPage{
 //        ReusableMethods.waitFor(5);
 //
 //    }
-    @Before(value = "@LoginStgV2")
-    public void loginStgV2() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
-        driver.get("https://stg.mobilyaplan.app/");
-        getLoginPage().getWebelmByName("Google ile giriş yap").click();
-        //getLoginPage().EpostaBox.sendKeys(USERCREDENTIAL.USER_EMNE.getUsername());
-        getLoginPage().EpostaBox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
-        getLoginPage().getWebelmByName("Next").click();
-        wait.until(ExpectedConditions.invisibilityOf(getLoginPage().EpostaBox));
-        //getLoginPage().inputPassword.sendKeys(USERCREDENTIAL.USER_EMNE.getPassword());
-        getLoginPage().inputPassword.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
-        getLoginPage().getWebelmByName("Next").click();
-        ReusableMethods.waitFor(3);
-        getProjeHomePage().NewProjeOlusturBtn.click();
-        ReusableMethods.waitFor(1);
-        getProjeHomePage().ProjeAdiBtn.sendKeys("KesifPlusMobilyaPlan");
-        ReusableMethods.waitFor(1);
-        getProjeHomePage().ProjeAdiOKBtn.click();
-        ReusableMethods.waitFor(1);
-       getProjeHomePage().KesifPlusMobilyaPlanSILBtn.click();
-       ReusableMethods.waitFor(1);
-       getProjeHomePage().KesifPlusMobilyaPlanSILBtnYES.click();
-       ReusableMethods.waitFor(1);
-        getProjeHomePage().ProjeyiAcBtn.click();
-        ReusableMethods.waitFor(6);
-
-
-    }
-    @Before(value = "@LoginV2")
-    public void loginV2() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        driver.get("https://stg.mobilyaplan.app/");
-        getLoginPage().getWebelmByName("Google ile giriş yap").click();
-
-        getLoginPage().EpostaBox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
-        getLoginPage().getWebelmByName("Next").click();
-        wait.until(ExpectedConditions.invisibilityOf(getLoginPage().EpostaBox));
-
-        getLoginPage().inputPassword.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
-        getLoginPage().getWebelmByName("Next").click();
-        ReusableMethods.waitFor(1);
-
-        }
+//    @Before(value = "@LoginStgV2")
+//    public void loginStgV2() {
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+//        driver.get("https://stg.mobilyaplan.app/");
+//        getLoginPage().getWebelmByName("Google ile giriş yap").click();
+//        //getLoginPage().EpostaBox.sendKeys(USERCREDENTIAL.USER_EMNE.getUsername());
+//        getLoginPage().EpostaBox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
+//        getLoginPage().getWebelmByName("Next").click();
+//        wait.until(ExpectedConditions.invisibilityOf(getLoginPage().EpostaBox));
+//        //getLoginPage().inputPassword.sendKeys(USERCREDENTIAL.USER_EMNE.getPassword());
+//        getLoginPage().inputPassword.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
+//        getLoginPage().getWebelmByName("Next").click();
+//        ReusableMethods.waitFor(3);
+//        getProjeHomePage().NewProjeOlusturBtn.click();
+//        ReusableMethods.waitFor(1);
+//        getProjeHomePage().ProjeAdiBtn.sendKeys("KesifPlusMobilyaPlan");
+//        ReusableMethods.waitFor(1);
+//        getProjeHomePage().ProjeAdiOKBtn.click();
+//        ReusableMethods.waitFor(1);
+//       getProjeHomePage().KesifPlusMobilyaPlanSILBtn.click();
+//       ReusableMethods.waitFor(1);
+//       getProjeHomePage().KesifPlusMobilyaPlanSILBtnYES.click();
+//       ReusableMethods.waitFor(1);
+//        getProjeHomePage().ProjeyiAcBtn.click();
+//        ReusableMethods.waitFor(6);
+//
+//
+//    }
+//    @Before(value = "@LoginV2")
+//    public void loginV2() {
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//        driver.get("https://stg.mobilyaplan.app/");
+//        getLoginPage().getWebelmByName("Google ile giriş yap").click();
+//
+//        getLoginPage().EpostaBox.sendKeys(ConfigurationReader.getProperty("loginV2_UserName"));
+//        getLoginPage().getWebelmByName("Next").click();
+//        wait.until(ExpectedConditions.invisibilityOf(getLoginPage().EpostaBox));
+//
+//        getLoginPage().inputPassword.sendKeys(ConfigurationReader.getProperty("loginV2_UserPassword"));
+//        getLoginPage().getWebelmByName("Next").click();
+//        ReusableMethods.waitFor(1);
+//
+//        }
 
     @Before("@DB")
     public void setupDatabase() {
@@ -212,41 +207,33 @@ public class Hooks extends CommonPage{
 
     }
 
-    public static String getToken(USERCREDENTIAL usercredential) {
-        response = given()
-                .contentType(ContentType.JSON)
-                .body("{\"email\": \"" + usercredential.getUsername() + "\",\"password\": \"" + usercredential.getPassword() + "\"}")
-                .when()
-                .post("https://stg.mobilyaplan.app/webapi/login/sign-in");
-
-        JsonPath jsonPath = response.jsonPath();
-        token = jsonPath.getString("token");
-
-        return token;
-    }
-
-    @Before("@userEmineToken")
-    public void userEmineToken() {
-        getToken(USER_EMNE);
-    }
+//    public static String getToken(USERCREDENTIAL usercredential) {
+//        response = given()
+//                .contentType(ContentType.JSON)
+//                .body("{\"email\": \"" + usercredential.getUsername() + "\",\"password\": \"" + usercredential.getPassword() + "\"}")
+//                .when()
+//                .post("https://****.app/webapi/login/sign-in");
+//
+//        JsonPath jsonPath = response.jsonPath();
+//        token = jsonPath.getString("token");
+//
+//        return token;
+//    }
 
 
-public String getToken(USERCREDENTIAL usercredential, URL_LINKS url_links) {
-    response = given()
-            .contentType(ContentType.JSON)
-            .body("{\"email\": \"" + usercredential.getUsername() + "\",\"password\": \"" + usercredential.getPassword() + "\"}")
-            .when()
-            .post(url_links.getLink());
 
-    JsonPath jsonPath = response.jsonPath();
-    token = jsonPath.getString("token");
+//public String getToken(USERCREDENTIAL usercredential, URL_LINKS url_links) {
+//    response = given()
+//            .contentType(ContentType.JSON)
+//            .body("{\"email\": \"" + usercredential.getUsername() + "\",\"password\": \"" + usercredential.getPassword() + "\"}")
+//            .when()
+//            .post(url_links.getLink());
+//
+//    JsonPath jsonPath = response.jsonPath();
+//    token = jsonPath.getString("token");
+//
+//    return token;
+//}
 
-    return token;
-}
-
-    @Before("@userEmneToken")
-    public void tokenCanli() {
-        getToken(USER_EMNE,URL_LINKS. LOGIN_API_URL);
-    }
 
 }

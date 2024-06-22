@@ -10,9 +10,9 @@ public abstract class CommonPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    private HomePage anasayfaPage;
+    private HomePage homePage;
 
-    public HomePage getAnasayfaPage() {
+    public HomePage getHomePage() {
         if (homePage == null){
             homePage = new HomePage();
 

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags ="@TEST_BQ-7"
+        tags ="UI"
 
         //dryRun = true
         // tags = "@UI and @Dahafazla"

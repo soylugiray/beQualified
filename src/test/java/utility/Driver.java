@@ -14,6 +14,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Locale;
 
 import static stepDefinitions.Hooks.*;
 
@@ -46,6 +47,9 @@ public class Driver {
 
 //***********Burayi false yaparak browser i gorebiliriz*******************************************
         // isHeadless = false;
+
+        Locale.setDefault(new Locale.Builder().setLanguage("en").build());
+        System.setProperty("user.language", "en");
 
         //setting various capabilities for browsers
         ChromeOptions chromeOptions = new ChromeOptions();

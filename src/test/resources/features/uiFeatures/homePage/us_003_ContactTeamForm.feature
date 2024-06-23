@@ -1,4 +1,4 @@
-@UI
+
 Feature: US_003 Verifying Headings on the Homepage
 
   Background:

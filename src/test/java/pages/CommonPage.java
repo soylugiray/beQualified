@@ -15,10 +15,8 @@ public abstract class CommonPage {
     public HomePage getHomePage() {
         if (homePage == null){
             homePage = new HomePage();
-
         }
         return homePage;
     }
-
 
 }

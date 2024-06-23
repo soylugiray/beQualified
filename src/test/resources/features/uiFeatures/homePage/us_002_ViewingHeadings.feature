@@ -5,7 +5,7 @@ Feature: US_002 Verifying Headings on the Homepage
     Given The user navigates to the home page
     Then The homepage should load successfully
 
-  @UI
+  @UI @headless
   Scenario: TC_01 Verify headings are displayed
     Given The user should see the headings below at the top of the homepage
       | Leistungen         |
